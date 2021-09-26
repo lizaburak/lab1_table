@@ -310,7 +310,7 @@ function makeTable() {
   }
   makeTable();
 
-
+  
   function countTable() {
     const body = document.querySelector("body");
     let table = document.createElement("table");
@@ -326,7 +326,6 @@ function makeTable() {
     td.innerHTML = counter-1;
     };
     countTable();
-
 
 
     function makeManagersTable() {
