@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,100;1,300;1,400&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+.body-table {
+  padding-top: 5vh;
+  margin: 0 auto;
+  text-align: center;
+  overflow: hidden;
+}
+
+.body-table tr td {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
+  position: relative;
+}
+
+.body-table tr:nth-child(2n) {
+  background-color: rgb(243, 235, 120);
+}
+
+.body-table tr:nth-child(2n-1) {
+  background-color: rgb(176, 177, 179);
+}
+
+.body-table tr:hover {
+  background-color: rgb(240, 80, 40);
+}
+
+.body-table td:hover::after {
+  content: "";
+  background-color: rgb(240, 80, 40);
+  height: 10000px;
+  left: 0;
+  position: absolute;
+  top: -5000px;
+  width: 100%;
+  z-index: -1;
+}
+
+.body-tableCount {
+  padding-top: 3vh;
+  margin-left: 15px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.body-tableCount tr td {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
+  position: relative;
+}
+
+.body-tableCount tr:nth-child(2n) {
+  background-color: rgb(243, 235, 120);
+}
+
+.body-tableCount tr:nth-child(2n-1) {
+  background-color: rgb(176, 177, 179);
+}
+
+.body-tableCount tr:hover {
+  background-color: rgb(240, 80, 40);
+}
