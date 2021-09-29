@@ -281,7 +281,25 @@ const data = [
     },
   ];
 
-let counter = 0;
+  function makeFooter(columnNumber) {
+    let table = document.querySelector(".body-tableCount");
+    let number = document.querySelectorAll(`.td_${columnNumber}`);
+    let sum = 0;
+    for (let i = 0; i < 20; i++) {
+      sum += Number(number[i].innerHTML);
+    }
+  
+
+    const footerTr = document.createElement("tr");
+    table.append(footerTr);
+    let td = document.createElement("td");
+      footerTr.append(td);
+       td = document.createElement("td");
+      footerTr.append(td);
+      td.innerHTML = sum;
+      td = document.createElement("td");
+      footerTr.append(td);
+    }
 
 function makeTable() {
     let table = document.createElement("table");
@@ -289,15 +307,17 @@ function makeTable() {
     body.append(table);
     table.classList.add("body-table");
     data.forEach(element => {
+      let counter = 0;
       tr = document.createElement("tr");
       table.append(tr);
       let lastRow = document.querySelectorAll("tr")[document.querySelectorAll("tr").length - 1]; 
       let dataValue = Object.values(element);
-      counter++;
       dataValue.forEach(dataElement => {
         let td = document.createElement("td");
         lastRow.append(td);
         td.innerHTML = dataElement;
+        td.classList.add(`td_${counter}`);
+         counter++;
       })
     });
     const headerTr = document.createElement("tr");
@@ -310,33 +330,14 @@ function makeTable() {
   }
   makeTable();
 
-
-  function countTable() {
-    const body = document.querySelector("body");
-    let table = document.createElement("table");
-    body.append(table);
-    table.classList.add("body-tableCount");
-    let tr = document.createElement("tr");
-    table.append(tr);
-    let td = document.createElement("td");
-    tr.append(td);
-    td.innerHTML = "Total count of product";
-    td = document.createElement("td");
-    tr.append(td);
-    td.innerHTML = counter-1;
-    };
-    countTable();
-
-
-
     function makeManagersTable() {
         let managersObject = {};
         const body = document.querySelector("body");
-        let table = document.createElement("table");
-        body.append(table);
-        table.classList.add("body-tableCount");
+        let Table = document.createElement("table");
+        body.append(Table);
+        Table.classList.add("body-tableCount");
         let tr = document.createElement("tr");
-        table.append(tr);
+        Table.append(tr);
         let td = document.createElement("td");
         tr.append(td);
         td = document.createElement("td");
@@ -359,11 +360,11 @@ function makeTable() {
 
         for (let manager in managersObject) {
           let tr = document.createElement("tr");
-          table.append(tr);
+          Table.append(tr);
           let td = document.createElement("td");
           tr.append(td);
           td.textContent = manager;
-          (function makeTd1() {
+          (function makeTd() {
             let td = document.createElement("td");
             tr.append(td);
             td.textContent = managersObject[manager][0];
@@ -372,5 +373,6 @@ function makeTable() {
               td.textContent = managersObject[manager][1];
           })()
         }
+        makeFooter(2);
       }
       makeManagersTable();
